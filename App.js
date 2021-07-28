@@ -55,12 +55,12 @@ export default function App() {
 
   const remove = async() => {
     try {
-      await AsyncStorage.removeItem("MyName")
+      await AsyncStorage.removeItem("MyItems")
     }
     catch(err) {
       alert(err)
     } finally {
-      setName("")
+      setTaskItems([])
     }
   }
 
@@ -73,12 +73,11 @@ export default function App() {
 
       <View style={styles.tasksWrapper}>
         <Text style={styles.sectionTitle}>Today's tasks</Text>
+        
+
 
         <View style={styles.items}>
         {
-
-
-
 
           taskItems.map((item, index) => {
             return (
@@ -105,9 +104,21 @@ export default function App() {
           <TouchableOpacity  
           onPress ={
             () => { handleAddTask(); save(); }
-            }>
+            }
+
+            
+          >
             <View style={styles.addWrapper}>
               <Text style={styles.addText}>+</Text>
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity  
+          onPress ={
+            () => {save();}
+            }>
+            <View style={styles.addWrapper}>
+              <Text style={styles.addText}>💾</Text>
             </View>
           </TouchableOpacity>
 
