@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,useLayoutEffect} from 'react';
 import { KeyboardAvoidingView, StyleSheet, Text, View,TextInput,TouchableOpacity, Keyboard } from 'react-native';
 import Task from './components/Task'
 
@@ -64,7 +64,7 @@ export default function App() {
     }
   }
 
-  useEffect(() =>{
+  useLayoutEffect(() =>{
     load();
   },[]);
 
